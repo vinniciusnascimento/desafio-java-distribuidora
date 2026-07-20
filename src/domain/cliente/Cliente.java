@@ -8,6 +8,4 @@ public abstract class Cliente {
         this.nome = nome;
         this.cpfOuCnpj = cpfOuCnpj;
     }
-
-    protected abstract double calcularDesconto(double valorTotal);
 }

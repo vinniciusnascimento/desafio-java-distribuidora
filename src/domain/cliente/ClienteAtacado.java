@@ -1,12 +1,14 @@
 package domain.cliente;
 
-public class ClienteAtacado extends Cliente{
+import domain.interfaces.TemDesconto;
+
+public class ClienteAtacado extends Cliente implements TemDesconto {
     public ClienteAtacado(String nome, String cpfOuCnpj) {
         super(nome, cpfOuCnpj);
     }
 
     @Override
-    protected double calcularDesconto(double valorTotal) {
+    public double calcularDesconto(double valorTotal) {
         if (valorTotal > 100){
             return valorTotal * 0.1;
         }
