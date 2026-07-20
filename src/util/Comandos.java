@@ -1,5 +1,6 @@
 package util;
 
+import domain.cliente.*;
 import domain.item.ItemPedido;
 import domain.pedido.Pedido;
 import domain.pedido.PedidosList;
@@ -28,7 +29,24 @@ public class Comandos {
         }
     }
 
+    public static void listarClientes(){
+        for (Cliente cliente : ClientesList.clientes) {
+            System.out.println("-------------");
+            System.out.println("Nome: " + cliente.getNome());
+            System.out.println("Cpf/Cnpj: " + cliente.getCpfOuCnpj());
+            System.out.println("Tipo cliente: " + cliente.getTipoCliente().getTipoFormatado());
+        }
+    }
+
     public static void criarProduto(String nome, double preco, int quantidadeEmEstoque){
         Produto produto = new Produto(nome, preco, quantidadeEmEstoque);
+    }
+
+    public static void criarClienteAtacado(String nome, String cpfOuCnpj, TipoCliente tipoCliente){
+        Cliente cliente = new ClienteAtacado(nome, cpfOuCnpj, tipoCliente);
+    }
+
+    public static void criarClienteVarejo(String nome, String cpfOuCnpj, TipoCliente tipoCliente){
+        Cliente cliente = new ClienteVarejo(nome, cpfOuCnpj, tipoCliente);
     }
 }

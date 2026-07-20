@@ -1,7 +1,7 @@
 package domain.cliente;
 
 public class ClienteVarejo extends Cliente{
-    public ClienteVarejo(String nome, String cpfOuCnpj) {
-        super(nome, cpfOuCnpj);
+    public ClienteVarejo(String nome, String cpfOuCnpj, TipoCliente tipoCliente) {
+        super(nome, cpfOuCnpj, tipoCliente);
     }
 }

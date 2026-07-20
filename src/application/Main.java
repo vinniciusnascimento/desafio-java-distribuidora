@@ -1,5 +1,6 @@
 package application;
 
+import domain.cliente.TipoCliente;
 import domain.produto.Produto;
 import domain.produto.ProdutoList;
 import util.Comandos;
@@ -16,10 +17,38 @@ public class Main {
         System.out.print("Escolha: ");
         String escolha = teclado.nextLine();
 
-        while (!escolha.equals("722")){
+        while (!escolha.equals("7")){
             switch (escolha){
                 case "1":
+                    System.out.println("1 - Cliente Atacado");
+                    System.out.println("2 - Cliente Varejo");
+                    System.out.print("Escolha: ");
+                    String tipoCliente = teclado.nextLine();
 
+                    if(tipoCliente.equals("1")){
+                        System.out.print("Nome do Cliente: ");
+                        String nome = teclado.nextLine();
+
+                        System.out.print("Cpf/Cnpj do Cliente: ");
+                        String cpfOuCnpj = teclado.nextLine();
+
+                        Comandos.criarClienteAtacado(nome, cpfOuCnpj, TipoCliente.ATACADO);
+                        System.out.println("Cliente criado com sucesso!");
+                        System.out.println();
+                    } else if(tipoCliente.equals("2")){
+                        System.out.print("Nome do Cliente: ");
+                        String nome = teclado.nextLine();
+
+                        System.out.print("Cpf/Cnpj do Produto: ");
+                        String cpfOuCnpj = teclado.nextLine();
+
+                        Comandos.criarClienteVarejo(nome, cpfOuCnpj, TipoCliente.VAREJO);
+                        System.out.println("Cliente criado com sucesso!");
+                        System.out.println();
+                    } else{
+                        System.out.println("Opção Inválida!");
+                        System.out.println();
+                    }
                     break;
 
                 case "2":
@@ -36,6 +65,7 @@ public class Main {
 
                     Comandos.criarProduto(nome, preco, quantidadeEmEstoque);
                     System.out.println("Produto criado com sucesso!");
+                    System.out.println();
                     break;
 
                 case "3":
@@ -47,6 +77,10 @@ public class Main {
 
                 case "5":
                     Comandos.listarProdutos();
+                    break;
+
+                case "6":
+                    Comandos.listarClientes();
                     break;
 
                 default:

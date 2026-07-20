@@ -3,8 +3,8 @@ package domain.cliente;
 import domain.interfaces.TemDesconto;
 
 public class ClienteAtacado extends Cliente implements TemDesconto {
-    public ClienteAtacado(String nome, String cpfOuCnpj) {
-        super(nome, cpfOuCnpj);
+    public ClienteAtacado(String nome, String cpfOuCnpj, TipoCliente tipoCliente) {
+        super(nome, cpfOuCnpj, tipoCliente);
     }
 
     @Override
