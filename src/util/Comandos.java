@@ -3,6 +3,7 @@ package util;
 import domain.item.ItemPedido;
 import domain.pedido.Pedido;
 import domain.pedido.PedidosList;
+import domain.produto.Produto;
 
 public class Comandos {
     public static void listarPedidos(){
@@ -17,7 +18,7 @@ public class Comandos {
         }
     }
 
-    public static void calcularEstatisticas(){
-        //
+    public static void criarProduto(String nome, double preco, int quantidadeEmEstoque){
+        Produto produto = new Produto(nome, preco, quantidadeEmEstoque);
     }
 }

@@ -9,5 +9,6 @@ public class Produto {
         this.nome = nome;
         this.preco = preco;
         this.quantidadeEmEstoque = quantidadeEmEstoque;
+        ProdutoList.produtos.add(this);
     }
 }
