@@ -4,6 +4,7 @@ import domain.item.ItemPedido;
 import domain.pedido.Pedido;
 import domain.pedido.PedidosList;
 import domain.produto.Produto;
+import domain.produto.ProdutoList;
 
 public class Comandos {
     public static void listarPedidos(){
@@ -15,6 +16,15 @@ public class Comandos {
             for (ItemPedido item : pedido.itens) {
                 System.out.println(item.getProduto() + " - " + item.getQuantidade() + "x");
             }
+        }
+    }
+
+    public static void listarProdutos(){
+        for (Produto produto : ProdutoList.produtos) {
+            System.out.println("-------------");
+            System.out.println("Nome: " + produto.getNome());
+            System.out.println("Preço Unitário: " + produto.getPreco());
+            System.out.println("Quantidade em Estoque: " + produto.getQuantidadeEmEstoque());
         }
     }
 

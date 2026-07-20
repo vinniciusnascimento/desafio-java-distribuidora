@@ -16,7 +16,7 @@ public class Main {
         System.out.print("Escolha: ");
         String escolha = teclado.nextLine();
 
-        while (!escolha.equals("5")){
+        while (!escolha.equals("722")){
             switch (escolha){
                 case "1":
 
@@ -43,6 +43,10 @@ public class Main {
 
                 case "4":
                     Comandos.listarPedidos();
+                    break;
+
+                case "5":
+                    Comandos.listarProdutos();
                     break;
 
                 default:
