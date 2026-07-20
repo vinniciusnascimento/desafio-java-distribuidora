@@ -6,7 +6,10 @@ public class ClienteAtacado extends Cliente{
     }
 
     @Override
-    protected void calcularDesconto(double valorTotal) {
-        //
+    protected double calcularDesconto(double valorTotal) {
+        if (valorTotal > 100){
+            return valorTotal * 0.1;
+        }
+        return valorTotal;
     }
 }

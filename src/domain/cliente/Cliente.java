@@ -9,5 +9,5 @@ public abstract class Cliente {
         this.cpfOuCnpj = cpfOuCnpj;
     }
 
-    protected abstract void calcularDesconto(double valorTotal);
+    protected abstract double calcularDesconto(double valorTotal);
 }

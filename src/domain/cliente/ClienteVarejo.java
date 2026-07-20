@@ -6,7 +6,7 @@ public class ClienteVarejo extends Cliente{
     }
 
     @Override
-    protected void calcularDesconto(double valorTotal) {
-        //
+    protected double calcularDesconto(double valorTotal) {
+        return valorTotal;
     }
 }
