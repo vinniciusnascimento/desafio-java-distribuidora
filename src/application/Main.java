@@ -1,6 +1,8 @@
 package application;
 
 import domain.produto.Produto;
+import domain.produto.ProdutoList;
+import util.Comandos;
 import util.Console;
 
 import java.util.Scanner;
@@ -10,22 +12,47 @@ public class Main {
         Console console = new Console();
         Scanner teclado = new Scanner(System.in);
 
-        /*
-        []Aparecer a mensagem
-        []Selecionar a tecla
-        []Fazer a função selecionada
-        []Começar novamente
-         */
-
+        Console.inicioPrograma();
+        System.out.print("Escolha: ");
         String escolha = teclado.nextLine();
 
         while (!escolha.equals("5")){
             switch (escolha){
                 case "1":
-                    break;
-                case "2":
 
+                    break;
+
+                case "2":
+                    System.out.print("Nome do Produto: ");
+                    String nome = teclado.nextLine();
+
+                    System.out.print("Preço: ");
+                    String precoStr = teclado.nextLine();
+                    double preco = Double.parseDouble(precoStr);
+
+                    System.out.print("Quantidade em Estoque: ");
+                    String quantidadeEmEstoqueStr = teclado.nextLine();
+                    int quantidadeEmEstoque = Integer.parseInt(quantidadeEmEstoqueStr);
+
+                    Comandos.criarProduto(nome, preco, quantidadeEmEstoque);
+                    System.out.println("Produto criado com sucesso!");
+                    break;
+
+                case "3":
+                    break;
+
+                case "4":
+                    Comandos.listarPedidos();
+                    break;
+
+                default:
+                    System.out.println("Opção Inválida!");
+                    break;
             }
+
+            Console.inicioPrograma();
+            System.out.print("Escolha: ");
+            escolha = teclado.nextLine();
         }
     }
 }
