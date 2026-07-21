@@ -38,7 +38,7 @@ public class Main {
                         System.out.print("Nome do Cliente: ");
                         String nome = teclado.nextLine();
 
-                        System.out.print("Cpf/Cnpj do Produto: ");
+                        System.out.print("Cpf/Cnpj do Cliente: ");
                         String cpfOuCnpj = teclado.nextLine();
 
                         Comandos.criarClienteVarejo(nome, cpfOuCnpj, TipoCliente.VAREJO);

@@ -15,10 +15,7 @@ public class Comandos {
             System.out.println("-------------");
             System.out.println("Cliente: " + pedido.getCliente());
             System.out.println("Data: " + pedido.getDataHora());
-            System.out.println("Itens: [" );
-            for (ItemPedido item : pedido.itens) {
-                System.out.println(item.getProduto() + " - " + item.getQuantidade() + "x");
-            }
+            System.out.println("Itens: " + pedido.getItem());
         }
     }
 

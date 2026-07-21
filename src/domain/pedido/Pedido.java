@@ -8,12 +8,12 @@ import java.util.List;
 
 public class Pedido {
     private Cliente cliente;
-    public List<ItemPedido> itens;
+    private ItemPedido item;
     private LocalDateTime dataHora;
 
-    public Pedido(Cliente cliente, List<ItemPedido> itens) {
+    public Pedido(Cliente cliente, ItemPedido item) {
         this.cliente = cliente;
-        this.itens = itens;
+        this.item = item;
         this.dataHora = LocalDateTime.now();
         PedidosList.pedidos.add(this);
     }
@@ -24,5 +24,9 @@ public class Pedido {
 
     public LocalDateTime getDataHora() {
         return dataHora;
+    }
+
+    public ItemPedido getItem() {
+        return item;
     }
 }
