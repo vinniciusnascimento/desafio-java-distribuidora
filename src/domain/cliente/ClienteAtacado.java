@@ -5,6 +5,7 @@ import domain.interfaces.TemDesconto;
 public class ClienteAtacado extends Cliente implements TemDesconto {
     public ClienteAtacado(String nome, String cpfOuCnpj, TipoCliente tipoCliente) {
         super(nome, cpfOuCnpj, tipoCliente);
+        ClientesList.clientes.add(this);
     }
 
     @Override
