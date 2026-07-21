@@ -6,8 +6,7 @@ import domain.pedido.Pedido;
 import domain.pedido.PedidosList;
 import domain.produto.Produto;
 import domain.produto.ProdutoList;
-
-import java.util.List;
+import util.exceptions.ValorInvalidoException;
 
 public class Comandos {
     public static void listarPedidos(){
