@@ -64,7 +64,7 @@ public class Comandos {
 
     public static void criarPedido(Cliente cliente, ItemPedido item){
         try{
-        Pedido pedido = new Pedido(cliente, item);
+            Pedido pedido = new Pedido(cliente, item);
         } catch (ValorInvalidoException | ClienteNaoEnconstradoException | EstoqueInsuficienteException e){
             System.out.println(e.getMessage());
         }

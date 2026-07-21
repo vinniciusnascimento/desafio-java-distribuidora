@@ -1,6 +1,7 @@
 package domain.pedido;
 
 import domain.cliente.Cliente;
+import domain.interfaces.TemDesconto;
 import domain.item.ItemPedido;
 import util.exceptions.ClienteNaoEnconstradoException;
 import util.exceptions.EstoqueInsuficienteException;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 public class Pedido {
     private Cliente cliente;
     private ItemPedido item;
+    private double valorTotal;
     private LocalDateTime dataHora;
 
     public Pedido(Cliente cliente, ItemPedido item) {
@@ -24,8 +26,18 @@ public class Pedido {
             this.cliente = cliente;
             this.item = item;
             this.dataHora = LocalDateTime.now();
+            double valorBruto = calcularValorTotal();
+            if (cliente instanceof TemDesconto) {
+                this.valorTotal = valorBruto - ((TemDesconto) cliente).calcularDesconto(valorBruto);
+            } else {
+                this.valorTotal = valorBruto;
+            }
             PedidosList.pedidos.add(this);
         }
+    }
+
+    private double calcularValorTotal(){
+        return this.item.getQuantidade() * this.item.getProduto().getPreco();
     }
 
     public Cliente getCliente() {
@@ -38,5 +50,9 @@ public class Pedido {
 
     public ItemPedido getItem() {
         return item;
+    }
+
+    public double getValorTotal() {
+        return valorTotal;
     }
 }
