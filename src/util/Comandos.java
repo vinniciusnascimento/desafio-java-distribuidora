@@ -6,6 +6,8 @@ import domain.pedido.Pedido;
 import domain.pedido.PedidosList;
 import domain.produto.Produto;
 import domain.produto.ProdutoList;
+import util.exceptions.ClienteNaoEnconstradoException;
+import util.exceptions.EstoqueInsuficienteException;
 import util.exceptions.ValorInvalidoException;
 
 public class Comandos {
@@ -37,19 +39,35 @@ public class Comandos {
     }
 
     public static void criarProduto(String nome, double preco, int quantidadeEmEstoque){
-        Produto produto = new Produto(nome, preco, quantidadeEmEstoque);
+        try{
+            Produto produto = new Produto(nome, preco, quantidadeEmEstoque);
+        } catch (ValorInvalidoException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void criarClienteAtacado(String nome, String cpfOuCnpj, TipoCliente tipoCliente){
-        Cliente cliente = new ClienteAtacado(nome, cpfOuCnpj, tipoCliente);
+        try{
+            Cliente cliente = new ClienteAtacado(nome, cpfOuCnpj, tipoCliente);
+        } catch (ValorInvalidoException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void criarClienteVarejo(String nome, String cpfOuCnpj, TipoCliente tipoCliente){
-        Cliente cliente = new ClienteVarejo(nome, cpfOuCnpj, tipoCliente);
+        try{
+            Cliente cliente = new ClienteVarejo(nome, cpfOuCnpj, tipoCliente);
+        } catch (ValorInvalidoException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void criarPedido(Cliente cliente, ItemPedido item){
+        try{
         Pedido pedido = new Pedido(cliente, item);
+        } catch (ValorInvalidoException | ClienteNaoEnconstradoException | EstoqueInsuficienteException e){
+            System.out.println(e.getMessage());
+        }
     }
 
     public static ItemPedido criarItemPedido(Produto produto, int quantidade){
