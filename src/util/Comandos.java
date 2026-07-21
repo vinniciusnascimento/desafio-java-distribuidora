@@ -17,6 +17,7 @@ public class Comandos {
             System.out.println("Cliente: " + pedido.getCliente());
             System.out.println("Data: " + pedido.getDataHora());
             System.out.println("Itens: " + pedido.getItem());
+            System.out.println("Valor Total: " + pedido.getValorTotal());
         }
     }
 

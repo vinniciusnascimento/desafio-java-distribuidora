@@ -13,10 +13,4 @@ public class Console {
         System.out.println();
         System.out.println("7 - Sair");
     }
-
-    public static void escolha(){
-        System.out.println("Deseja comprar outro item? ");
-        System.out.println("1 - Sim");
-        System.out.println("2 - Não");
-    }
 }

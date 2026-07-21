@@ -11,6 +11,14 @@ public class ItemPedido {
         this.quantidade = quantidade;
     }
 
+    @Override
+    public String toString() {
+        return "ItemPedido{" +
+                "produto=" + produto +
+                ", quantidade=" + quantidade +
+                '}';
+    }
+
     public Produto getProduto() {
         return produto;
     }

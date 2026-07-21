@@ -27,11 +27,8 @@ public class Pedido {
             this.item = item;
             this.dataHora = LocalDateTime.now();
             double valorBruto = calcularValorTotal();
-            if (cliente instanceof TemDesconto) {
-                this.valorTotal = valorBruto - ((TemDesconto) cliente).calcularDesconto(valorBruto);
-            } else {
-                this.valorTotal = valorBruto;
-            }
+            this.valorTotal = valorBruto - cliente.calcularDesconto(valorBruto);
+            item.getProduto().baixarEstoque(item.getQuantidade());
             PedidosList.pedidos.add(this);
         }
     }

@@ -2,7 +2,7 @@ package domain.cliente;
 
 import domain.interfaces.TemDesconto;
 
-public class ClienteVarejo extends Cliente implements TemDesconto {
+public class ClienteVarejo extends Cliente {
     public ClienteVarejo(String nome, String cpfOuCnpj, TipoCliente tipoCliente) {
         super(nome, cpfOuCnpj, tipoCliente);
         ClientesList.clientes.add(this);
@@ -10,6 +10,6 @@ public class ClienteVarejo extends Cliente implements TemDesconto {
 
     @Override
     public double calcularDesconto(double valorTotal) {
-        return valorTotal;
+        return 0;
     }
 }

@@ -8,7 +8,7 @@ public class Produto {
     private int quantidadeEmEstoque;
 
     public Produto(String nome, double preco, int quantidadeEmEstoque) {
-        if (nome == null || preco == 0 || quantidadeEmEstoque < 0){
+        if (nome == null || nome.isBlank() || preco < 0 || quantidadeEmEstoque < 0){
             throw new ValorInvalidoException("Nome, preço ou quantidade em estoque inválido");
         } else{
             this.nome = nome;
@@ -16,6 +16,10 @@ public class Produto {
             this.quantidadeEmEstoque = quantidadeEmEstoque;
             ProdutoList.produtos.add(this);
         }
+    }
+
+    public void baixarEstoque(int quantidade) {
+        this.quantidadeEmEstoque -= quantidade;
     }
 
     public String getNome() {

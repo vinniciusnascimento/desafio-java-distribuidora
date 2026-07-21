@@ -1,8 +1,9 @@
 package domain.cliente;
 
+import domain.interfaces.TemDesconto;
 import util.exceptions.ValorInvalidoException;
 
-public abstract class Cliente {
+public abstract class Cliente implements TemDesconto {
     protected String nome;
     protected String cpfOuCnpj;
     protected TipoCliente tipoCliente;
@@ -15,6 +16,15 @@ public abstract class Cliente {
             this.cpfOuCnpj = cpfOuCnpj;
             this.tipoCliente = tipoCliente;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nome='" + nome + '\'' +
+                ", cpfOuCnpj='" + cpfOuCnpj + '\'' +
+                ", tipoCliente=" + tipoCliente +
+                '}';
     }
 
     public String getNome() {

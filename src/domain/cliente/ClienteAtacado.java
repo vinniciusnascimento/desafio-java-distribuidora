@@ -13,6 +13,6 @@ public class ClienteAtacado extends Cliente implements TemDesconto {
         if (valorTotal > 100){
             return valorTotal * 0.1;
         }
-        return valorTotal;
+        return 0;
     }
 }
