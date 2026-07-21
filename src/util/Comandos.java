@@ -7,6 +7,8 @@ import domain.pedido.PedidosList;
 import domain.produto.Produto;
 import domain.produto.ProdutoList;
 
+import java.util.List;
+
 public class Comandos {
     public static void listarPedidos(){
         for (Pedido pedido : PedidosList.pedidos) {
@@ -48,5 +50,14 @@ public class Comandos {
 
     public static void criarClienteVarejo(String nome, String cpfOuCnpj, TipoCliente tipoCliente){
         Cliente cliente = new ClienteVarejo(nome, cpfOuCnpj, tipoCliente);
+    }
+
+    public static void criarPedido(Cliente cliente, ItemPedido item){
+        Pedido pedido = new Pedido(cliente, item);
+    }
+
+    public static ItemPedido criarItemPedido(Produto produto, int quantidade){
+        ItemPedido itemPedido = new ItemPedido(produto, quantidade);
+        return itemPedido;
     }
 }

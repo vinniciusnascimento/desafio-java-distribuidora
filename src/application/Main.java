@@ -1,7 +1,7 @@
 package application;
 
+import domain.cliente.ClientesList;
 import domain.cliente.TipoCliente;
-import domain.produto.Produto;
 import domain.produto.ProdutoList;
 import util.Comandos;
 import util.Console;
@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Console console = new Console();
         Scanner teclado = new Scanner(System.in);
 
         Console.inicioPrograma();
@@ -69,6 +68,23 @@ public class Main {
                     break;
 
                 case "3":
+                    Comandos.listarClientes();
+                    System.out.print("Cliente (index): ");
+                    String indexClienteStr = teclado.nextLine();
+                    int indexCliente = Integer.parseInt(indexClienteStr);
+
+                    Comandos.listarProdutos();
+                    System.out.print("Produto (index): ");
+                    String indexItemStr = teclado.nextLine();
+                    int indexItem = Integer.parseInt(indexItemStr);
+
+                    System.out.print("Quantidade: ");
+                    String quantidadeStr = teclado.nextLine();
+                    int quantidade = Integer.parseInt(quantidadeStr);
+
+                    Comandos.criarPedido(ClientesList.clientes.get(indexCliente), Comandos.criarItemPedido(ProdutoList.produtos.get(indexItem), quantidade));
+                    System.out.println("Pedido criado com sucesso!");
+                    System.out.println();
                     break;
 
                 case "4":
